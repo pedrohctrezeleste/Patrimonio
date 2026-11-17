@@ -21,6 +21,7 @@ public class Patrimonio {
 @Column(name = "descricao",nullable = false,length = 255)
     private String descricao;
 
+
     public String getDescricao() {
         return descricao;
     }
@@ -53,8 +54,8 @@ public class Patrimonio {
         Id = id;
     }
 
-    public Patrimonio(Long id, String descricao, String nr_patrimonio, String local) {
-        Id = id;
+    public Patrimonio() {
+        Id = Id;
         this.descricao = descricao;
         this.nr_patrimonio = nr_patrimonio;
         this.local = local;

@@ -41,7 +41,7 @@ public class PatrimonioController {
 
         if (patrimonio.isPresent()){
             model.addAttribute("patrimonio",patrimonio.get());
-            return "formulario"
+            return "formulario";
         }
 
         return "redirect:/patrimonios";
