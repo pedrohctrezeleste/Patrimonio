@@ -1,27 +1,31 @@
+
 package github.com.pedrohctrezeleste.Patrimonio.Patrimonio.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="tb_patrimonio")
-
+@Table(name = "tb_patrimonio")
 
 public class Patrimonio {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-@Column(name = "nr_patrimonio", nullable = false,length = 50)
-    private String nr_patrimonio;
+    @Column(name = "nr_patrimonio", nullable = false, length = 50)
+    private String nrPatrimonio;
 
-@Column(name = "local",nullable = false,length = 255)
+    @Column(name = "local", nullable = false, length = 255)
     private String local;
 
-@Column(name = "descricao",nullable = false,length = 255)
+    @Column(name = "descricao", nullable = false, length = 255)
     private String descricao;
 
+    // Construtor
+    public Patrimonio() {
+    }
 
+    // Getter e Setter da descrição
     public String getDescricao() {
         return descricao;
     }
@@ -30,6 +34,7 @@ public class Patrimonio {
         this.descricao = descricao;
     }
 
+    // Getter e Setter do local
     public String getLocal() {
         return local;
     }
@@ -38,27 +43,22 @@ public class Patrimonio {
         this.local = local;
     }
 
-    public String getNr_patrimonio() {
-        return nr_patrimonio;
+    // Getter e Setter do número do patrimônio
+    public String getNrPatrimonio() {
+        return nrPatrimonio;
     }
 
-    public void setNr_patrimonio(String nr_patrimonio) {
-        this.nr_patrimonio = nr_patrimonio;
+    public void setNrPatrimonio(String nrPatrimonio) {
+        this.nrPatrimonio = nrPatrimonio;
     }
 
+    // Getter e Setter do ID
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
-    }
-
-    public Patrimonio() {
-        Id = Id;
-        this.descricao = descricao;
-        this.nr_patrimonio = nr_patrimonio;
-        this.local = local;
+        this.id = id;
     }
 
 }

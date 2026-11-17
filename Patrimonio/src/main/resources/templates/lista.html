@@ -1,49 +1,62 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c"%>
-<html xmlns:c="forEach">
+
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>LISTA DE PATRIMONIO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LISTA DE PATRIMÔNIO</title>
 </head>
+
 <body>
 
-<h2> CONTROLE DE PATRIMONIO</h2>
+<h2>CONTROLE DE PATRIMÔNIO</h2>
 
-<a href="/patrimonio/novo">Cadastro novo </a>
+<a th:href="@{/patrimonios/novo}">Cadastro novo</a>
 
-<table>
+<table border="1">
+
     <thead>
-    <th>ID</th>
-    <th>Nr PATRIMONIO</th>
-    <th>DESCRIÇÃO</th>
-    <th>LOCAL</th>
-    <th>AÇÕES</th>
+    <tr>
+        <th>ID</th>
+        <th>Nr PATRIMÔNIO</th>
+        <th>DESCRIÇÃO</th>
+        <th>LOCAL</th>
+        <th>AÇÕES</th>
+    </tr>
     </thead>
 
     <tbody>
-    <c:forEach var="item" items="${listaPatrimonios}">
 
-        <tr>
+    <tr th:each="item : ${listaPatrimonios}">
 
-            <td>${item.id}</td>
-            <td>${item.nrPatrimonio}</td>
-            <td>${item.descricao}</td>
-            <td>${item.local}</td>
+        <td th:text="${item.id}"></td>
 
-            <td>
-                <a href="/patrimonios/editar/${item.id}">Editar</a>
-                <a href="/patrimonios/excluir/${item.id}" onclick="return confirm('Deseja excluir esse patrimônio ?')" >Excluir</a>
-            </td>
+        <td th:text="${item.nrPatrimonio}"></td>
 
-        </tr>
+        <td th:text="${item.descricao}"></td>
 
-    </c:forEach>
+        <td th:text="${item.local}"></td>
+
+        <td>
+
+            <a th:href="@{/patrimonios/editar/{id}(id=${item.id})}">
+                Editar
+            </a>
+
+            <a th:href="@{/patrimonios/excluir/{id}(id=${item.id})}"
+               onclick="return confirm('Deseja excluir esse patrimônio?')">
+                Excluir
+            </a>
+
+        </td>
+
+    </tr>
 
     </tbody>
 
 </table>
 
-<body>
+</body>
 </html>
-
-
-

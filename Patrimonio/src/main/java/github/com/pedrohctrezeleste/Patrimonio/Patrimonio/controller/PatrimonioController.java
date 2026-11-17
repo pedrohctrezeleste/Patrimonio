@@ -21,7 +21,7 @@ public class PatrimonioController {
 
     @GetMapping
     public String listar(Model model){
-        model.addAttribute("ListarPatrimonios",service.listarTodos());
+        model.addAttribute("listarPatrimonios",service.listarTodos());
             return "lista";
     }
 
